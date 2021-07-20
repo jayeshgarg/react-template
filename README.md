@@ -5,13 +5,8 @@
 ## Main branch
 
 The purpose of main branch is to maintain the empty template and other learning stuff goes in respective branch. Refer
-the below branch list with description for more details.
+the respective branch for more details.
 
-## Learning Branch list
+## One great tutorial for learning 
 
-### Basic react components
-
-This branch code helps to understand the basic concepts of components, how to embed components one into another,
-maintaining the state of component at different component, etc.
-
-[![Source Video](http://img.youtube.com/vi/Ke90Tje7VS0/0.jpg)](http://www.youtube.com/watch?v=Ke90Tje7VS0)
+[![Source Video](http://img.youtube.com/vi/4UZrsTqkcW4/0.jpg)](http://www.youtube.com/watch?v=4UZrsTqkcW4)
