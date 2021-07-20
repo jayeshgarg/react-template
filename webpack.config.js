@@ -1,40 +1,41 @@
-const {HotModuleReplacementPlugin} = require("webpack");
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { HotModuleReplacementPlugin } = require('webpack')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: path.resolve(__dirname, "./src/index.js"),
+    entry: path.resolve(__dirname, './src/index.js'),
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: ["babel-loader"],
+                use: ['babel-loader'],
             },
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.(png|jp(e*)g|svg|gif)$/,
-                use: ["file-loader"],
+                use: ['file-loader'],
             },
         ],
     },
     resolve: {
-        extensions: ["*", ".js", ".jsx"],
+        extensions: ['*', '.js', '.jsx'],
     },
     output: {
-        path: path.resolve(__dirname, "./dist"),
-        filename: "bundle.js",
+        path: path.resolve(__dirname, './dist'),
+        filename: 'bundle.js',
     },
-    plugins: [new HotModuleReplacementPlugin(),
+    plugins: [
+        new HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, "public", "index.html"),
-        })
+            template: path.join(__dirname, 'public', 'index.html'),
+        }),
     ],
     devServer: {
-        contentBase: path.resolve(__dirname, "./dist"),
+        contentBase: path.resolve(__dirname, './dist'),
         hot: true,
     },
-};
+}

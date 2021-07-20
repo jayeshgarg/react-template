@@ -1,5 +1,5 @@
-import React from "react";
-import Counter from "./counter";
+import React from 'react'
+import Counter from './counter'
 
 /*
 Instead of usual class, if a class has just render method and nothing else, then it can be converted to
@@ -18,10 +18,10 @@ New Way:
  */
 
 const Counters = (props) => {
-    const { onReset, onDelete, onChangeValue, counters } = props;
+    const { onReset, onDelete, onChangeValue, counters } = props
     return (
         <div>
-            <button onClick={onReset} className="btn btn-success m-1">
+            <button onClick={onReset} className='btn btn-success m-1'>
                 Reset
             </button>
             {counters.map((ctr) => (
@@ -33,10 +33,10 @@ const Counters = (props) => {
                 />
             ))}
         </div>
-    );
-};
+    )
+}
 
-export default Counters; //export default can't be put in front of SFC declaration
+export default Counters //export default can't be put in front of SFC declaration
 
 /*
 Note: New way doesn't require this keyword with props

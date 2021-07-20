@@ -1,7 +1,7 @@
-import React, {Component} from "react";
-import "./App.css";
-import Navbar from "./components/navbar";
-import Counters from "./components/counters";
+import React, { Component } from 'react'
+import './App.css'
+import Navbar from './components/navbar'
+import Counters from './components/counters'
 
 class App extends Component {
     state = {
@@ -11,16 +11,18 @@ class App extends Component {
             { id: 3, value: 0 },
             { id: 4, value: 0 },
         ],
-    };
+    }
 
     handleDeleteCounter = (id) => {
-        console.log("attempt to delete #" + id + " counter was made successfully!!!");
-        const counters = this.state.counters.filter((c) => c.id !== id);
-        this.setState({ counters: counters });
-    };
+        console.log(
+            'attempt to delete #' + id + ' counter was made successfully!!!'
+        )
+        const counters = this.state.counters.filter((c) => c.id !== id)
+        this.setState({ counters: counters })
+    }
 
     handleReset = () => {
-        console.log("attempt to reset counters was made!!!");
+        console.log('attempt to reset counters was made!!!')
         /*----------To reset without bringing back the deleted counters
         const counters = this.state.counters.map((ctr) => {
             ctr.value = 0;
@@ -32,10 +34,10 @@ class App extends Component {
             { id: 2, value: 0 },
             { id: 3, value: 0 },
             { id: 4, value: 0 },
-        ];
-        this.setState({ counters });
-        console.log("reset successful!!!");
-    };
+        ]
+        this.setState({ counters })
+        console.log('reset successful!!!')
+    }
 
     handleIncrementDecrement = (ctr, val) => {
         /*
@@ -44,35 +46,37 @@ class App extends Component {
         const counters = [...this.state.counters];
          */
 
-        console.log("Button clicked", this);
-        const counters = [...this.state.counters];
-        const index = counters.indexOf(ctr);
-        counters[index] = { ...ctr };
-        counters[index].value += val;
+        console.log('Button clicked', this)
+        const counters = [...this.state.counters]
+        const index = counters.indexOf(ctr)
+        counters[index] = { ...ctr }
+        counters[index].value += val
         /*
         const counters = this.state.counters.map((ctrItr) => {
             if (ctrItr.id === ctr.id) ctrItr.value += val;
             return ctr;
         });*/
-        this.setState({ counters }); //correct
+        this.setState({ counters }) //correct
         //this.setState(counters); //incorrect
-    };
+    }
 
     render() {
         return (
             <React.Fragment>
                 <Navbar counters={this.state.counters} />
-                <main className="container">
+                <main className='container'>
                     <Counters
                         counters={this.state.counters}
                         onReset={this.handleReset}
                         onDelete={(id) => this.handleDeleteCounter(id)}
-                        onChangeValue={(ctr, val) => this.handleIncrementDecrement(ctr, val)}
+                        onChangeValue={(ctr, val) =>
+                            this.handleIncrementDecrement(ctr, val)
+                        }
                     />
                 </main>
             </React.Fragment>
-        );
+        )
     }
 }
 
-export default App;
+export default App
