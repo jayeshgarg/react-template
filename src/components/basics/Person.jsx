@@ -4,9 +4,6 @@ import PersonImage from './PersonImage'
 import PersonName from './PersonName'
 import PersonDesignation from './PersonDesignation'
 
-import './../../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import './../App.css'
-
 const Person = ({ name, designation, imageSrc }) => {
     const clickHandler = (e) => {
         console.log('Hello ' + name + '!!!')
