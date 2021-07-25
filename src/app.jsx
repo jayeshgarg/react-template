@@ -2,12 +2,12 @@ import React from 'react'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import UseStateArrayExample from './components/advance/02'
+import Example from './components/advance/07'
 
 function App() {
     return (
-        <div className='container d-flex justify-content-center'>
-            <UseStateArrayExample />
+        <div className='container'>
+            <Example />
         </div>
     )
 }
