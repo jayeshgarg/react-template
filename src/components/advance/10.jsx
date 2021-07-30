@@ -12,6 +12,14 @@ const ConditionalRenderingShortCircuitExample = () => {
     //short circuit evaluation similar to C-language
     const firstValue = text || 'hello world' // if text is true, then text else 'hello world'
     const secondValue = text && 'hello world' // if text is true, then 'hello world' else undefined/void
+
+    useEffect(() => {
+        console.log('10 got loaded')
+        return () => {
+            console.log('10 got unloaded')
+        }
+    }, [])
+
     return (
         <>
             <h1>short circuit example</h1>
