@@ -118,7 +118,7 @@ const FormBasicsMultipleInputExample = () => {
                         </label>
                         <input
                             className='form-control'
-                            type='text'
+                            type='email'
                             id='email'
                             name='email'
                             placeholder='Enter your email address'
@@ -137,7 +137,8 @@ const FormBasicsMultipleInputExample = () => {
                 </form>
             </article>
             <article>
-                <table className='table'>
+                <table className='table table-dark table-striped table-hover'>
+                    <caption>List of users with email addresses</caption>
                     <thead>
                         <tr>
                             <th scope='col'>#</th>
