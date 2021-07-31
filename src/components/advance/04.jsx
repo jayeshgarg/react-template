@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const UseStateFunctionExample = () => {
+const HookUseStateFunctionExample = () => {
     const [counter, setCounter] = useState(100)
     const [counter2, setCounter2] = useState(100)
 
@@ -62,4 +62,4 @@ const UseStateFunctionExample = () => {
 }
 //increase and decrease = by direct inline function call
 //reset = by passing function reference of an external function
-export default UseStateFunctionExample
+export default HookUseStateFunctionExample

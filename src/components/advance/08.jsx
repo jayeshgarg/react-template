@@ -10,7 +10,7 @@ const url = 'https://api.github.com/users'
  * It runs after each and every render of the component
  * WE CAN USE AS MANY USEEFFECT FUNCTIONS AS WE LIKE IN A SINGLE COMPONENT
  */
-const UseEffectFetchDataExample = () => {
+const HookUseEffectFetchDataExample = () => {
     const [users, setUsers] = useState([])
 
     const getUsers = async () => {
@@ -48,7 +48,7 @@ const UseEffectFetchDataExample = () => {
     )
 }
 
-export default UseEffectFetchDataExample
+export default HookUseEffectFetchDataExample
 /*
 REMEMBER:
 useState - trigger re-render -> triggers useEffect -> now if we have any king of modification to state(useState) then

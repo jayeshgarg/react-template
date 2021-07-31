@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react'
  * It runs after each and every render of the component
  * WE CAN USE AS MANY USEEFFECT FUNCTIONS AS WE LIKE IN A SINGLE COMPONENT
  */
-const UseEffectCleanupExample = () => {
+const HookUseEffectCleanupExample = () => {
     const [size, setSize] = useState(window.innerWidth)
     const [sizeDesc, setSizeDesc] = useState('Wide')
 
@@ -43,4 +43,4 @@ const UseEffectCleanupExample = () => {
         </div>
     )
 }
-export default UseEffectCleanupExample
+export default HookUseEffectCleanupExample

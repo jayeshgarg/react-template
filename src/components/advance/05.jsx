@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
  * For eg, page title is not in scope of current component and hence if we want to change it we can use useEffect hook
  * It runs after each and every render of the component
  */
-const UseEffectExample = () => {
+const HookUseEffectExample = () => {
     const [value, setValue] = useState(100)
 
     useEffect(() => {
@@ -26,4 +26,4 @@ const UseEffectExample = () => {
         </div>
     )
 }
-export default UseEffectExample
+export default HookUseEffectExample

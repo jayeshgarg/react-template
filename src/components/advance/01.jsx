@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UseStateExample = () => {
+const HookUseStateExample = () => {
     const [title, setTitle] = React.useState('Some Random Title')
 
     const handleClick = () => {
@@ -22,4 +22,4 @@ const UseStateExample = () => {
     )
 }
 
-export default UseStateExample
+export default HookUseStateExample

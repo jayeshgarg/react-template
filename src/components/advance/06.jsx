@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react'
  * It runs after each and every render of the component
  * WE CAN USE AS MANY USEEFFECT FUNCTIONS AS WE LIKE IN A SINGLE COMPONENT
  */
-const UseEffectConditionalExample = () => {
+const HookUseEffectConditionalExample = () => {
     const [value, setValue] = useState(100)
 
     /**
@@ -45,4 +45,4 @@ const UseEffectConditionalExample = () => {
         </div>
     )
 }
-export default UseEffectConditionalExample
+export default HookUseEffectConditionalExample

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UseStateObjectExample = () => {
+const HookUseStateObjectExample = () => {
     const [person, setPerson] = React.useState({
         name: 'Jayesh',
         age: 33,
@@ -28,4 +28,4 @@ const UseStateObjectExample = () => {
     )
 }
 
-export default UseStateObjectExample
+export default HookUseStateObjectExample

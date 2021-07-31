@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UseStateArrayExample = () => {
+const HookUseStateArrayExample = () => {
     const data = [
         { id: 1, name: 'Jayesh' },
         { id: 2, name: 'Pooja' },
@@ -61,4 +61,4 @@ const UseStateArrayExample = () => {
     )
 }
 
-export default UseStateArrayExample
+export default HookUseStateArrayExample
