@@ -1,14 +1,18 @@
-import React, { Component } from 'react'
-import './App.css'
+import React from 'react'
+import TopNavigationBar from './components/common/navbar'
+import LeftNavigationBar from './components/common/leftNavigationBar'
+import ContentTemplate from './components/common/content-template'
+import Footer from './components/common/footer'
 
-class App extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                <h1>This is an empty react template</h1>
-            </React.Fragment>
-        )
-    }
+const App = () => {
+    return (
+        <>
+            <TopNavigationBar />
+            <LeftNavigationBar />
+            <ContentTemplate />
+            <Footer />
+        </>
+    )
 }
 
 export default App
