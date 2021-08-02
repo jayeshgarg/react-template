@@ -74,7 +74,7 @@ module.exports = {
         hot: true,
     },
     mode: 'development',
-    devtool: 'source-map',
+    //devtool: 'source-map',
     optimization: {
         splitChunks: {
             chunks: 'all',
