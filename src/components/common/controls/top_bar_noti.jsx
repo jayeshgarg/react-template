@@ -1,12 +1,36 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect, useRef, useState } from 'react'
 
 const TopBarNotifications = () => {
     //this is a hack to make the dropdown work, it doesn't work is we click elsewhere
     const [isShowDropdown, setIsShowDropdown] = useState(false)
+
+    const handleOutsideClick = (e) => {
+        if (
+            dropdownRef &&
+            dropdownRef.current &&
+            !dropdownRef.current.contains(e.target)
+        ) {
+            setIsShowDropdown(false)
+        }
+    }
+    const dropdownRef = useRef(null)
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleOutsideClick, false)
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick, false)
+        }
+    }, [])
+
+    let className = 'dropdown-menu dropdown-menu-lg dropdown-menu-right'
+
+    if (isShowDropdown) {
+        className += ' show'
+    }
+
     return (
         <>
-            <li className='nav-item dropdown'>
+            <li ref={dropdownRef} className='nav-item dropdown'>
                 <a
                     className='nav-link'
                     data-toggle='dropdown'
@@ -17,12 +41,7 @@ const TopBarNotifications = () => {
                     <i className='far fa-bell'></i>
                     <span className='badge badge-warning navbar-badge'>15</span>
                 </a>
-                <div
-                    className={
-                        'dropdown-menu dropdown-menu-lg dropdown-menu-right' +
-                        (isShowDropdown ? ' show' : '')
-                    }
-                >
+                <div className={className}>
                     <span className='dropdown-item dropdown-header'>
                         15 Notifications
                     </span>

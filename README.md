@@ -2,11 +2,10 @@
 
 (For personal learning purpose only)
 
-## Main branch
+## AdminLTE branch
 
-The purpose of main branch is to maintain the empty template and other learning stuff goes in respective branch. Refer
-the respective branch for more details.
+The purpose of this branch is to learn React by porting the HTML5/CSS3 template by the name of AdminLTE. This will help
+in understanding different concepts of React by the way of implementing it.
 
-## One great tutorial for learning 
-
-[![Source Video](http://img.youtube.com/vi/4UZrsTqkcW4/0.jpg)](http://www.youtube.com/watch?v=4UZrsTqkcW4)
+## Source AdminLTE template
+https://adminlte.io/themes/v3/

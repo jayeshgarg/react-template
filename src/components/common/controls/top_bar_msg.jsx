@@ -1,16 +1,46 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import MessageItem from './msg_item'
 
 const TopBarMessages = ({ allMsgTargetUrl, messageSnapshots }) => {
+    const [isShowDropdown, setIsShowDropdown] = useState(false)
+
+    const handleOutsideClick = (e) => {
+        if (
+            dropdownRef &&
+            dropdownRef.current &&
+            !dropdownRef.current.contains(e.target)
+        ) {
+            setIsShowDropdown(false)
+        }
+    }
+    const dropdownRef = useRef(null)
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleOutsideClick, false)
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick, false)
+        }
+    }, [])
+    let className = 'dropdown-menu dropdown-menu-lg dropdown-menu-right'
+
+    if (isShowDropdown) {
+        className += ' show'
+    }
     return (
         <>
-            <li className='nav-item dropdown'>
-                <a className='nav-link' data-toggle='dropdown'>
+            <li ref={dropdownRef} className='nav-item dropdown'>
+                <a
+                    className='nav-link'
+                    data-toggle='dropdown'
+                    onClick={() => {
+                        setIsShowDropdown(!isShowDropdown)
+                    }}
+                >
                     <i className='far fa-comments'></i>
                     <span className='badge badge-danger navbar-badge'>3</span>
                 </a>
-                <div className='dropdown-menu dropdown-menu-lg dropdown-menu-right'>
+                <div className={className}>
                     {messageSnapshots.map((msg) => {
                         return (
                             <MessageItem key={msg.id} messageSnapshot={msg} />
