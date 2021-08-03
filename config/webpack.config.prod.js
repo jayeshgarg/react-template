@@ -7,11 +7,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: ['babel-polyfill', './src/index.js'],
     output: {
+        clean: true,
         path: path.resolve(__dirname, './dist'),
-        filename: '[name].bundle.[contenthash].js',
-        publicPath: '/'
+        filename: 'static/js/[name].[contenthash:8].js',
+        publicPath: '.'
     },
     module: {
+        strictExportPresence: true,
         rules: [
             {
                 test: /\.(js|jsx)$/,
@@ -26,18 +28,33 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader']
+            },
+            {
+                test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+                loader: require.resolve('file-loader'),
+                options: {
+                    limit: 10000,
+                    name: 'static/media/[name].[contenthash:8].[ext]'
+                }
+            },
+            {
+                test: /\.(svg|eot|woff|woff2|ttf)$/,
+                loader: require.resolve('file-loader'),
+                options: {
+                    limit: 10000,
+                    name: 'static/fonts/[name].[contenthash:8].[ext]'
+                }
             }
         ]
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['.js', '.jsx']
     },
     plugins: [
         new HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'public', 'index.html'),
-            favicon: path.join(__dirname, 'public', 'favicon.ico'),
-            manifest: './public/manifest.json'
+            favicon: path.join(__dirname, 'public', 'favicon.ico')
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css',
@@ -47,9 +64,14 @@ module.exports = {
             patterns: [
                 {
                     from: 'public',
+                    to: 'static',
                     filter: async (resPath) => {
                         console.log(resPath.toString());
-                        if (resPath.toString().endsWith('index.html')) {
+                        if (
+                            resPath.toString().endsWith('index.html') ||
+                            resPath.toString().endsWith('.html') ||
+                            resPath.toString().endsWith('.js')
+                        ) {
                             return false;
                         }
                         return true;
