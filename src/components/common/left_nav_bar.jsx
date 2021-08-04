@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const LeftNavigationBar = () => {
     return (
         <aside className='main-sidebar sidebar-dark-primary elevation-4'>
             <a href='#' className='brand-link'>
                 <img
-                    src='img/AdminLTELogo.png'
+                    src='static/img/AdminLTELogo.png'
                     alt='AdminLTE Logo'
                     className='brand-image img-circle elevation-3'
                     style={{ opacity: '.8' }}
@@ -16,11 +16,7 @@ const LeftNavigationBar = () => {
             <div className='sidebar'>
                 <div className='user-panel mt-3 pb-3 mb-3 d-flex'>
                     <div className='image'>
-                        <img
-                            src='img/user2-160x160.jpg'
-                            className='img-circle elevation-2'
-                            alt='User Image'
-                        />
+                        <img src='static/img/user2-160x160.jpg' className='img-circle elevation-2' alt='User Image' />
                     </div>
                     <div className='info'>
                         <a href='#' className='d-block'>
@@ -50,8 +46,7 @@ const LeftNavigationBar = () => {
                         className='nav nav-pills nav-sidebar flex-column'
                         data-widget='treeview'
                         role='menu'
-                        data-accordion='false'
-                    >
+                        data-accordion='false'>
                         <li className='nav-item menu-open'>
                             <a href='#' className='nav-link active'>
                                 <i className='nav-icon fas fa-tachometer-alt'></i>
@@ -80,9 +75,7 @@ const LeftNavigationBar = () => {
                                 <i className='nav-icon fas fa-th'></i>
                                 <p>
                                     Simple Link
-                                    <span className='right badge badge-danger'>
-                                        New
-                                    </span>
+                                    <span className='right badge badge-danger'>New</span>
                                 </p>
                             </a>
                         </li>
@@ -90,6 +83,6 @@ const LeftNavigationBar = () => {
                 </nav>
             </div>
         </aside>
-    )
-}
-export default LeftNavigationBar
+    );
+};
+export default LeftNavigationBar;

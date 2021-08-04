@@ -47,6 +47,7 @@ module.exports = {
             patterns: [
                 {
                     from: 'public',
+                    to: 'static/',
                     filter: async (resPath) => {
                         console.log(resPath.toString());
                         if (resPath.toString().endsWith('index.html')) {

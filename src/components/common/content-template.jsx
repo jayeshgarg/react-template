@@ -7,7 +7,7 @@ const ContentTemplate = () => {
             <Breadcrumb />
             <div className='content'>
                 <div className='container-fluid'>
-                    <img src={'img/avatar.png'} />
+                    <img src={'static/img/avatar.png'} />
                 </div>
             </div>
         </div>
