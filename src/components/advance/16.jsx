@@ -1,70 +1,84 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useReducer, useState } from 'react'
 import 'regenerator-runtime'
+import UseReducerModelExample from './16_model'
 
-// this example shows how to encapsulate multiple inputs so that we dont have to maintain
-// the state of too many individual fields at the component level
-const FormBasicsMultipleInputExample = () => {
+const UseReducerExample = () => {
     const defaultEmptyPerson = {
         id: 0,
         firstName: '',
         lastName: '',
         email: '',
     }
+    const initialData = {
+        id: 1,
+        firstName: 'Jayesh',
+        lastName: 'Garg',
+        email: 'gargjayesh@live.com',
+    }
+
+    const reducer = (state, action) => {
+        console.log(state, action)
+        switch (action.type) {
+            case 'ADD_EDIT':
+                const newPeople = [...state.people, person]
+                const newState = {
+                    people: newPeople,
+                    showModel: false,
+                }
+                console.log(newState)
+                return newState
+            case 'DELETE':
+                console.log('person to be delete - ', person.id)
+                return state
+            case 'MODAL':
+                return { ...state, showModel: true }
+            default:
+                throw new Error('Dont know what you are trying to do...')
+        }
+    }
+
+    const initialState = {
+        showModel: false,
+        people: [initialData],
+    }
     const [person, setPerson] = useState(defaultEmptyPerson)
-    const [people, setPeople] = useState([])
+
+    const [state, dispatch] = useReducer(reducer, initialState)
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const { id, firstName, lastName, email } = person
-        if (firstName && lastName && email) {
+        if (id && firstName && lastName && email) {
+            dispatch({ type: 'ADD_EDIT' })
+        } else if (firstName && lastName && email) {
             let maxId = 0
-            let newTotal
             if (id == 0) {
-                newTotal = [...people]
-                if (people.length > 0) {
-                    const ids = people.map((p) => p.id)
+                if (state.people.length != 0) {
+                    const ids = state.people.map((p) => p.id)
                     maxId = ids.reduce((p1, p2) => (p1 > p2 ? p1 : p2))
                 }
                 maxId += 1
             } else {
-                newTotal = people.filter((p) => p.id != id)
                 maxId = id
             }
-            newTotal.push({
-                ...person,
-                id: maxId,
-            })
-            setPeople([...newTotal].sort((p1, p2) => p1.id - p2.id))
-            setPerson(defaultEmptyPerson)
+            setPerson({ ...person, id: maxId })
+            dispatch({ type: 'ADD_EDIT' })
+        } else {
+            dispatch({ type: 'MODAL' })
         }
     }
 
-    useEffect(() => {
-        const initialData = [
-            {
-                id: 1,
-                firstName: 'Jayesh',
-                lastName: 'Garg',
-                email: 'gargjayesh@live.com',
-            },
-        ]
-        setPeople(initialData)
-    }, [])
-
     const deletePerson = (deleteId) => {
-        setPeople(
-            people
-                .filter((p) => p.id !== deleteId)
-                .map((p) => ({ ...p, id: p.id > deleteId ? p.id - 1 : p.id }))
-        )
+        const delPerson = { ...person, id: deleteId }
+        setPerson(delPerson)
+        console.log('We are deleting = ', person, ',with id - ', deleteId)
+        //dispatch({ type: 'DELETE' })
     }
 
     const editPerson = (editId) => {
         //filter can return multiple items, find returns first match only
-        const { id, firstName, lastName, email } = people.find(
-            (p) => p.id == editId
-        )
-        setPerson({ id, firstName, lastName, email })
+        const person = state.people.find((p) => p.id == editId)
+        setPerson(person)
     }
 
     const handleChange = (e) => {
@@ -72,10 +86,9 @@ const FormBasicsMultipleInputExample = () => {
         const value = e.target.value
         setPerson({ ...person, [field]: value }) //[field] converts the field value into json field dynamically
     }
-
     return (
         <>
-            <h2>Forms : Multi-input Example</h2>
+            <h2>Forms : UseReducer Example</h2>
             <article>
                 <form onSubmit={handleSubmit} className='row'>
                     <input type='hidden' id='id' name='id' value={person.id} />
@@ -131,6 +144,9 @@ const FormBasicsMultipleInputExample = () => {
                     </div>
                 </form>
             </article>
+            {state.showModel && (
+                <UseReducerModelExample modelContent={person} />
+            )}
             <article>
                 <table className='table table-dark table-striped table-hover'>
                     <caption>List of users with email addresses</caption>
@@ -145,8 +161,8 @@ const FormBasicsMultipleInputExample = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {people.map((person) => {
-                            const { id, firstName, lastName, email } = person
+                        {state.people.map((p) => {
+                            const { id, firstName, lastName, email } = p
                             return (
                                 <tr key={id}>
                                     <th scope='row'>{id}</th>
@@ -182,4 +198,4 @@ const FormBasicsMultipleInputExample = () => {
         </>
     )
 }
-export default FormBasicsMultipleInputExample
+export default UseReducerExample
