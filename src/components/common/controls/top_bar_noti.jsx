@@ -1,31 +1,27 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 
 const TopBarNotifications = () => {
     //this is a hack to make the dropdown work, it doesn't work is we click elsewhere
-    const [isShowDropdown, setIsShowDropdown] = useState(false)
+    const [isShowDropdown, setIsShowDropdown] = useState(false);
 
     const handleOutsideClick = (e) => {
-        if (
-            dropdownRef &&
-            dropdownRef.current &&
-            !dropdownRef.current.contains(e.target)
-        ) {
-            setIsShowDropdown(false)
+        if (dropdownRef && dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+            setIsShowDropdown(false);
         }
-    }
-    const dropdownRef = useRef(null)
+    };
+    const dropdownRef = useRef(null);
 
     useEffect(() => {
-        document.addEventListener('mousedown', handleOutsideClick, false)
+        document.addEventListener('mousedown', handleOutsideClick, false);
         return () => {
-            document.removeEventListener('mousedown', handleOutsideClick, false)
-        }
-    }, [])
+            document.removeEventListener('mousedown', handleOutsideClick, false);
+        };
+    }, []);
 
-    let className = 'dropdown-menu dropdown-menu-lg dropdown-menu-right'
+    let className = 'dropdown-menu dropdown-menu-lg dropdown-menu-right';
 
     if (isShowDropdown) {
-        className += ' show'
+        className += ' show';
     }
 
     return (
@@ -35,36 +31,27 @@ const TopBarNotifications = () => {
                     className='nav-link'
                     data-toggle='dropdown'
                     onClick={() => {
-                        setIsShowDropdown(!isShowDropdown)
-                    }}
-                >
+                        setIsShowDropdown(!isShowDropdown);
+                    }}>
                     <i className='far fa-bell'></i>
                     <span className='badge badge-warning navbar-badge'>15</span>
                 </a>
                 <div className={className}>
-                    <span className='dropdown-item dropdown-header'>
-                        15 Notifications
-                    </span>
+                    <span className='dropdown-item dropdown-header'>15 Notifications</span>
                     <div className='dropdown-divider'></div>
                     <a href='#' className='dropdown-item'>
                         <i className='fas fa-envelope mr-2'></i> 4 new messages
-                        <span className='float-right text-muted text-sm'>
-                            3 mins
-                        </span>
+                        <span className='float-right text-muted text-sm'>3 mins</span>
                     </a>
                     <div className='dropdown-divider'></div>
                     <a href='#' className='dropdown-item'>
                         <i className='fas fa-users mr-2'></i> 8 friend requests
-                        <span className='float-right text-muted text-sm'>
-                            12 hours
-                        </span>
+                        <span className='float-right text-muted text-sm'>12 hours</span>
                     </a>
                     <div className='dropdown-divider'></div>
                     <a href='#' className='dropdown-item'>
                         <i className='fas fa-file mr-2'></i> 3 new reports
-                        <span className='float-right text-muted text-sm'>
-                            2 days
-                        </span>
+                        <span className='float-right text-muted text-sm'>2 days</span>
                     </a>
                     <div className='dropdown-divider'></div>
                     <a href='#' className='dropdown-item dropdown-footer'>
@@ -73,6 +60,6 @@ const TopBarNotifications = () => {
                 </div>
             </li>
         </>
-    )
-}
-export default TopBarNotifications
+    );
+};
+export default TopBarNotifications;

@@ -1,15 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const TopNavBarSearchBox = ({ searchButtonHandler }) => {
     return (
         <>
-            <a
-                className='nav-link'
-                data-widget='navbar-search'
-                href='#'
-                role='button'
-            >
+            <a className='nav-link' data-widget='navbar-search' href='#' role='button'>
                 <i className='fas fa-search'></i>
             </a>
             <div className='navbar-search-block'>
@@ -22,18 +17,10 @@ const TopNavBarSearchBox = ({ searchButtonHandler }) => {
                             aria-label='Search'
                         />
                         <div className='input-group-append'>
-                            <button
-                                className='btn btn-navbar'
-                                type='submit'
-                                onClick={searchButtonHandler}
-                            >
+                            <button className='btn btn-navbar' type='submit' onClick={searchButtonHandler}>
                                 <i className='fas fa-search'></i>
                             </button>
-                            <button
-                                className='btn btn-navbar'
-                                type='button'
-                                data-widget='navbar-search'
-                            >
+                            <button className='btn btn-navbar' type='button' data-widget='navbar-search'>
                                 <i className='fas fa-times'></i>
                             </button>
                         </div>
@@ -41,16 +28,16 @@ const TopNavBarSearchBox = ({ searchButtonHandler }) => {
                 </form>
             </div>
         </>
-    )
-}
+    );
+};
 
 TopNavBarSearchBox.propTypes = {
-    searchButtonHandler: PropTypes.func,
-}
+    searchButtonHandler: PropTypes.func
+};
 TopNavBarSearchBox.defaultProps = {
     searchButtonHandler: (e) => {
-        e.preventDefault()
-        console.log('Top navigation search option used!')
-    },
-}
-export default TopNavBarSearchBox
+        e.preventDefault();
+        console.log('Top navigation search option used!');
+    }
+};
+export default TopNavBarSearchBox;

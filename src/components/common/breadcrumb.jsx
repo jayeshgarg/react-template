@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Breadcrumb = ({ pageTitle, crumbs }) => {
     return (
@@ -13,43 +13,33 @@ const Breadcrumb = ({ pageTitle, crumbs }) => {
                         <ol className='breadcrumb float-sm-right'>
                             {crumbs.map((c) => {
                                 return (
-                                    <li
-                                        key={c.id}
-                                        className={
-                                            'breadcrumb-item ' +
-                                            (c.isActive ? 'active' : '')
-                                        }
-                                    >
-                                        {c.linkUrl ? (
-                                            <a href={c.linkUrl}>{c.linkName}</a>
-                                        ) : (
-                                            <>{c.linkName}</>
-                                        )}
+                                    <li key={c.id} className={'breadcrumb-item ' + (c.isActive ? 'active' : '')}>
+                                        {c.linkUrl ? <a href={c.linkUrl}>{c.linkName}</a> : <>{c.linkName}</>}
                                     </li>
-                                )
+                                );
                             })}
                         </ol>
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 Breadcrumb.propTypes = {
     pageTitle: PropTypes.string,
     crumbs: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number,
             linkName: PropTypes.string,
-            linkUrl: PropTypes.string,
+            linkUrl: PropTypes.string
         })
-    ),
-}
+    )
+};
 Breadcrumb.defaultProps = {
     pageTitle: 'Page Title',
     crumbs: [
         { id: 1, linkName: 'Home', linkUrl: '#', isActive: false },
-        { id: 2, linkName: 'Template Page', linkUrl: '', isActive: true },
-    ],
-}
-export default Breadcrumb
+        { id: 2, linkName: 'Template Page', linkUrl: '', isActive: true }
+    ]
+};
+export default Breadcrumb;
