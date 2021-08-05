@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Home from './home'
 import About from './about'
 import Error from './error'
+import Parameter from './parameter'
 
 const RouterExample = () => {
     useEffect(() => {
@@ -32,11 +33,27 @@ const RouterExample = () => {
                     <li className='navbar-nav'>
                         <Link to='/somError'>Some Error Page</Link>
                     </li>
+                    <li className='navbar-nav'>
+                        <Link to='/parameter/jayesh'>
+                            Parameter Passing - Jayesh
+                        </Link>
+                    </li>
+                    <li className='navbar-nav'>
+                        <Link to='/parameter/pooja'>
+                            Parameter Passing - Pooja
+                        </Link>
+                    </li>
+                    <li className='navbar-nav'>
+                        <Link to='/parameter/aaru'>
+                            Parameter Passing - Aaratrika
+                        </Link>
+                    </li>
                 </ul>
 
                 <Switch>
                     <Route exact path='/' component={Home} />
                     <Route path='/about' component={About} />
+                    <Route path='/parameter/:name' component={Parameter} />
                     <Route path='*' component={Error} />
                 </Switch>
             </BrowserRouter>
