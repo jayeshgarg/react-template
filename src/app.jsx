@@ -2,7 +2,7 @@ import React from 'react'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import Example from './components/advance/16'
+import Example from './components/advance/98'
 
 function App() {
     return (
