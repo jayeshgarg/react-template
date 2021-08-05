@@ -19,6 +19,9 @@ const RouterExample = () => {
                 return e
             })
         )
+        console.log('a' == 'A'.toLowerCase())
+        console.log('1' == 1)
+        console.log('1' === 1)
     }, [])
     return (
         <>
@@ -53,7 +56,10 @@ const RouterExample = () => {
                 <Switch>
                     <Route exact path='/' component={Home} />
                     <Route path='/about' component={About} />
-                    <Route path='/parameter/:name' component={Parameter} />
+                    {
+                        // whatever we name the variable here in ROUTE will exactly same received in target component
+                    }
+                    <Route path='/parameter/:name' children={<Parameter />} />
                     <Route path='*' component={Error} />
                 </Switch>
             </BrowserRouter>
