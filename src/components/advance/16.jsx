@@ -2,6 +2,10 @@ import React, { useEffect, useRef, useReducer, useState } from 'react'
 import 'regenerator-runtime'
 import UseReducerModelExample from './16_model'
 
+/**
+ * THIS STUDY OF USEREDUCER IS INCOMPLETE
+ * MUST RE-VISIT TO FINISH THIS
+ */
 const UseReducerExample = () => {
     const defaultEmptyPerson = {
         id: 0,
