@@ -2,11 +2,12 @@
 
 (For personal learning purpose only)
 
-## Main branch
+## Fluent UI (Microsoft) branch
 
-The purpose of main branch is to maintain the empty template and other learning stuff goes in respective branch. Refer
+The purpose of this branch is to maintain the empty template and other learning stuff goes in respective branch. Refer
 the respective branch for more details.
 
-## One great tutorial for learning 
+## Fluent UI Reference
 
-[![Source Video](http://img.youtube.com/vi/4UZrsTqkcW4/0.jpg)](http://www.youtube.com/watch?v=4UZrsTqkcW4)
+https://developer.microsoft.com/en-us/fluentui
+
