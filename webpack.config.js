@@ -4,6 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: path.resolve(__dirname, './src/index.js'),
+    output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: '[name].bundle.js',
+        publicPath: '/',
+    },
     module: {
         rules: [
             {
@@ -16,17 +21,13 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.(png|jp(e*)g|svg|gif)$/,
-                use: ['file-loader'],
+                test: /\.(png|jp(e*)g|svg|gif|ico)$/,
+                type: 'asset/resource',
             },
         ],
     },
     resolve: {
         extensions: ['*', '.js', '.jsx'],
-    },
-    output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: 'bundle.js',
     },
     plugins: [
         new HotModuleReplacementPlugin(),
@@ -37,5 +38,11 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
         hot: true,
+    },
+    devtool: 'eval-source-map',
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        },
     },
 }

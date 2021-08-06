@@ -12,9 +12,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.0.2",
+    "@fluentui/azure-themes": "^8.1.50",
+    "@fluentui/react": "^8.27.0",
+    "@fluentui/react-components": "^9.0.0-alpha.1",
+    "@fluentui/react-theme": "^0.3.3",
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@uifabric/fluent-theme": "^7.4.48",
+    "@uifabric/react-cards": "^0.115.64",
+    "file-loader": "^6.2.0",
+    "office-ui-fabric-react": "^7.174.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",

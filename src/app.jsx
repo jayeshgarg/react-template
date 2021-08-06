@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
-import './App.css'
+import React from 'react'
+import Fluent01 from './components/01'
 
-class App extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                <h1>This is an empty react template</h1>
-            </React.Fragment>
-        )
-    }
+const App = () => {
+    return (
+        <React.Fragment>
+            <h1>Microsoft Fluent UI Practice</h1>
+            <Fluent01 />
+        </React.Fragment>
+    )
 }
 
 export default App
