@@ -13,7 +13,7 @@ SplashScreen.propTypes = {
     altText: PropTypes.string
 };
 SplashScreen.defaultProps = {
-    imgUrl: 'static/img/AdminLTELogo.png',
+    imgUrl: 'img/AdminLTELogo.png',
     altText: 'AdminLTELogo'
 };
 export default SplashScreen;

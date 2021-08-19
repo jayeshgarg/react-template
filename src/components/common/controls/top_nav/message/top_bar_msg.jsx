@@ -58,7 +58,7 @@ TopBarMessages.defaultProps = {
     messageSnapshots: [
         {
             id: 1,
-            imgUrl: 'static/img/user1-128x128.jpg',
+            imgUrl: 'img/user1-128x128.jpg',
             name: 'Brad Diesel',
             message: 'Call me whenever you can...',
             elapsedTime: '4 Hours Ago',
@@ -67,7 +67,7 @@ TopBarMessages.defaultProps = {
         },
         {
             id: 2,
-            imgUrl: 'static/img/user8-128x128.jpg',
+            imgUrl: 'img/user8-128x128.jpg',
             name: 'John Pierce',
             message: 'I got your message bro',
             elapsedTime: '4 Hours Ago',
@@ -76,7 +76,7 @@ TopBarMessages.defaultProps = {
         },
         {
             id: 3,
-            imgUrl: 'static/img/user3-128x128.jpg',
+            imgUrl: 'img/user3-128x128.jpg',
             name: 'Nora Silvester',
             message: 'The subject goes here',
             elapsedTime: '4 Hours Ago',

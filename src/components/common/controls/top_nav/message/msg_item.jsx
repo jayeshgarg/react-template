@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const MessageItem = ({ messageSnapshot }) => {
@@ -20,7 +20,7 @@ const MessageItem = ({ messageSnapshot }) => {
     const { id, imgUrl, name, message, elapsedTime, target, priority } = messageSnapshot;
     return (
         <>
-            <a href={target} className='dropdown-item'>
+            <a href={target} className='dropdown-item' key={id}>
                 <div className='media'>
                     <img src={imgUrl} alt='User Avatar' className='img-size-50 mr-3 img-circle' />
                     <div className='media-body'>
@@ -57,7 +57,7 @@ MessageItem.propTypes = {
 MessageItem.defaultProps = {
     messageSnapshot: {
         id: 1,
-        imgUrl: 'static/img/user1-128x128.jpg',
+        imgUrl: 'img/user1-128x128.jpg',
         name: 'Brad Diesel',
         message: 'Call me whenever you can...',
         elapsedTime: '4 Hours Ago',

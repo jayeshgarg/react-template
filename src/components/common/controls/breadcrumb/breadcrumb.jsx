@@ -39,7 +39,7 @@ Breadcrumb.defaultProps = {
     pageTitle: 'Page Title',
     crumbs: [
         { id: 1, linkName: 'Home', linkUrl: '#', isActive: false },
-        { id: 2, linkName: 'Template Page', linkUrl: '', isActive: true }
+        { id: 2, linkName: 'Template Page', linkUrl: '#', isActive: true }
     ]
 };
 export default Breadcrumb;

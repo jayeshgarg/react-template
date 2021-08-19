@@ -1,13 +1,14 @@
 import React from 'react';
-import Breadcrumb from './breadcrumb';
+import Breadcrumb from './../common/controls/breadcrumb/breadcrumb';
 
 const ContentTemplate = () => {
     return (
         <div className='content-wrapper'>
-            <Breadcrumb />
+            <Breadcrumb/>
             <div className='content'>
                 <div className='container-fluid'>
-                    <img src={'static/img/avatar.png'} />
+                    <img src={'img/avatar.png'}/>
+                    <input type='text'/>
                 </div>
             </div>
         </div>
